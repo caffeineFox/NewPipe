@@ -433,6 +433,9 @@
         <item quantity="other">%s Zuhörer</item>
     </plurals>
     <string name="localization_changes_requires_app_restart">Die Sprache ändert sich, sobald die App neu gestartet wird</string>
+    <string name="content_filter_summary">Füge Schlüsselwörter und Texte hinzu, nach denen in Trends, der Suche, Abonnements etc. Einträge ausgeschlossen werden sollen.</string>
+    <string name="content_filter_add_hint">Filtertext</string>
+    <string name="content_filter_search_existing">Suche in bestehenden Filtern</string>
     <string name="peertube_instance_url_title">PeerTube-Instanzen</string>
     <string name="peertube_instance_url_help">Finde auf %s die Instanzen, die dir gefallen</string>
     <string name="peertube_instance_add_title">Instanz hinzufügen</string>
@@ -825,4 +828,10 @@
 \nMöchtest du wirklich fortfahren?</string>
     <string name="import_settings_vulnerable_format">Die Einstellungen in dem zu importierenden Export verwenden ein angreifbares Format, das seit NewPipe 0.27.0 veraltet ist. Stellen Sie sicher, dass der zu importierende Export aus einer vertrauenswürdigen Quelle stammt, und verwenden Sie in Zukunft nur noch Exporte, die aus NewPipe 0.27.0 oder neuer stammen. Die Unterstützung für den Import von Einstellungen in diesem angreifbaren Format wird bald vollständig entfernt werden, und dann werden alte Versionen von NewPipe nicht mehr in der Lage sein, Einstellungen von Exporten aus neuen Versionen zu importieren.</string>
     <string name="audio_track_type_secondary">Sekundär</string>
+    <string name="content_filter_title">Inhaltsfilter</string>
+    <string name="add">Hinzufügen</string>
+    <string name="content_filter_item_exists">Inhaltsfilter existiert bereits</string>
+    <string name="content_filter_add_title">Filter hinzufügen</string>
+    <string name="content_filter_add_help">Filtertext hier eingeben, er wird automatisch kleingeschrieben gespeichert</string>
+    <string name="search_content_filters">Search for content filters</string>
 </resources>

@@ -20,6 +20,7 @@ import org.schabi.newpipe.extractor.ListInfo;
 import org.schabi.newpipe.extractor.Page;
 import org.schabi.newpipe.extractor.exceptions.ContentNotSupportedException;
 import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.ContentFilterHelper;
 import org.schabi.newpipe.views.NewPipeRecyclerView;
 
 import java.util.ArrayList;
@@ -202,7 +203,7 @@ public abstract class BaseListInfoFragment<I extends InfoItem, L extends ListInf
         super.handleNextItems(result);
 
         currentNextPage = result.getNextPage();
-        infoListAdapter.addInfoItemList(result.getItems());
+        infoListAdapter.addInfoItemList(ContentFilterHelper.contentFilterInfoItems(requireContext(), result.getItems()));
 
         showListFooter(hasMoreItems());
 
@@ -230,7 +231,7 @@ public abstract class BaseListInfoFragment<I extends InfoItem, L extends ListInf
 
         if (infoListAdapter.getItemsList().isEmpty()) {
             if (!result.getRelatedItems().isEmpty()) {
-                infoListAdapter.addInfoItemList(result.getRelatedItems());
+                infoListAdapter.addInfoItemList(ContentFilterHelper.contentFilterInfoItems(requireContext(), result.getRelatedItems()));
                 showListFooter(hasMoreItems());
             } else if (hasMoreItems()) {
                 loadMoreItems();

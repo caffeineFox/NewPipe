@@ -65,6 +65,7 @@ import org.schabi.newpipe.ktx.ExceptionUtils;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.Constants;
+import org.schabi.newpipe.util.ContentFilterHelper;
 import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.KeyboardUtil;
@@ -1019,7 +1020,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
 
         if (infoListAdapter.getItemsList().isEmpty()) {
             if (!result.getRelatedItems().isEmpty()) {
-                infoListAdapter.addInfoItemList(result.getRelatedItems());
+                infoListAdapter.addInfoItemList(ContentFilterHelper.contentFilterInfoItems(requireContext(), result.getRelatedItems()));
             } else {
                 infoListAdapter.clearStreamItemList();
                 showEmptyState();
@@ -1064,7 +1065,7 @@ public class SearchFragment extends BaseListFragment<SearchInfo, ListExtractor.I
     @Override
     public void handleNextItems(final ListExtractor.InfoItemsPage<?> result) {
         showListFooter(false);
-        infoListAdapter.addInfoItemList(result.getItems());
+        infoListAdapter.addInfoItemList(ContentFilterHelper.contentFilterInfoItems(requireContext(), result.getItems()));
         nextPage = result.getNextPage();
 
         if (!result.getErrors().isEmpty()) {

@@ -48,6 +48,14 @@
         app:singleLineTitle="false"
         app:iconSpaceReserved="false" />
 
+    <PreferenceScreen
+        android:fragment="org.schabi.newpipe.settings.ContentFilterFragment"
+        android:key="@string/content_filter_setup_key"
+        android:summary="@string/content_filter_summary"
+        android:title="@string/content_filter_title"
+        app:singleLineTitle="false"
+        app:iconSpaceReserved="false" />
+
     <MultiSelectListPreference
         android:key="@string/show_channel_tabs_key"
         android:summary="@string/show_channel_tabs_summary"

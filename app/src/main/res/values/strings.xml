@@ -139,6 +139,13 @@
     <string name="unsupported_url_dialog_message">Could not recognize the URL. Open with another app?</string>
     <string name="default_content_country_title">Default content country</string>
     <string name="content_language_title">Default content language</string>
+    <string name="content_filter_title">Content filter</string>
+    <string name="content_filter_summary">List keywords and text you want to filter out in trends, searches, subscriptions etc.</string>
+    <string name="content_filter_item_exists">Content filter already exists</string>
+    <string name="content_filter_add_title">Add filter</string>
+    <string name="content_filter_add_help">Enter text to filter by, it will be saved in lower case</string>
+    <string name="content_filter_add_hint">Text to filter by</string>
+    <string name="content_filter_search_existing">Search in existing filters</string>
     <string name="peertube_instance_url_title">PeerTube instances</string>
     <string name="peertube_instance_url_summary">Select your favorite PeerTube instances</string>
     <string name="peertube_instance_url_help">Find the instances you like on %s</string>
@@ -859,4 +866,5 @@
     <string name="show_more">Show more</string>
     <string name="show_less">Show less</string>
     <string name="import_settings_vulnerable_format">The settings in the export being imported use a vulnerable format that was deprecated since NewPipe 0.27.0. Make sure the export being imported is from a trusted source, and prefer using only exports obtained from NewPipe 0.27.0 or newer in the future. Support for importing settings in this vulnerable format will soon be removed completely, and then old versions of NewPipe will not be able to import settings of exports from new versions anymore.</string>
+    <string name="add">Add</string>
 </resources>
