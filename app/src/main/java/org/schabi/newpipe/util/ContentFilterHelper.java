@@ -21,36 +21,32 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.settings.ContentFilterFragment;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public final class ContentFilterHelper {
 	private ContentFilterHelper() {
 	}
 
 	public static List<ContentFilterFragment.ContentFilterItem> getContentFilterItemList(final Context context) {
+		final List<ContentFilterFragment.ContentFilterItem> result = new ArrayList<>();
 		final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 		final String contentFilterListKey = context.getString(R.string.content_filter_list_key);
 		final String savedJson = sharedPreferences.getString(contentFilterListKey, null);
-		if (null == savedJson) {
-			return null;
-		}
-
-		try {
-			final JsonArray array = JsonParser.object().from(savedJson).getArray("filterItems");
-			final List<ContentFilterFragment.ContentFilterItem> result = new ArrayList<>();
-			for (final Object o : array) {
-				if (o instanceof JsonObject filterItem) {
-					final boolean enabled = filterItem.getBoolean("enabled");
-					final String filterText = filterItem.getString("filterText");
-					result.add(new ContentFilterFragment.ContentFilterItem(filterText, enabled));
+		if (null != savedJson) {
+			try {
+				final JsonArray array = JsonParser.object().from(savedJson).getArray("filterItems");
+				for (final Object o : array) {
+					if (o instanceof JsonObject filterItem) {
+						final boolean enabled = filterItem.getBoolean("enabled");
+						final String filterText = filterItem.getString("filterText");
+						result.add(new ContentFilterFragment.ContentFilterItem(filterText, enabled));
+					}
 				}
+			} catch (final JsonParserException e) {
+				return result;
 			}
-			return result;
-		} catch (final JsonParserException e) {
-			return null;
 		}
+		return result;
 	}
 
 	public static List<ContentFilterFragment.ContentFilterItem> getEnabledContentFilterItemList(final Context context) {
